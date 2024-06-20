@@ -1,12 +1,13 @@
 use crate::built_ins::float::Float;
 use crate::built_ins::bool::Bool;
+use crate::built_ins::string::String;
 use dumpster::Collectable;
 
 pub type IntType = i64;
 
 #[derive(Clone, Copy, Collectable)]
 pub struct Integer {
-    x: IntType,
+    pub x: IntType,
 }
 
 impl Integer {
@@ -31,6 +32,18 @@ impl Integer {
 
     pub fn _ZF11N8__bool__E(& mut self) -> Bool {
         return Bool::new(self.x != 0)
+    }
+
+    pub fn _ZF11N8__real__E(& mut self) -> Integer {
+        return *self
+    }
+
+    pub fn _ZF11N8__imag__E(& mut self) -> Integer {
+        return Integer::new(0)
+    }
+
+    pub fn _ZF10N7__str__E(& mut self) -> String {
+        return String::new(self.x.to_string())
     }
 
 }

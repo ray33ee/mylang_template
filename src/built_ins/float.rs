@@ -1,5 +1,6 @@
 use crate::built_ins::integer::Integer;
 use crate::built_ins::bool::Bool;
+use crate::built_ins::string::String;
 use dumpster::Collectable;
 
 pub type FloatType = f64;
@@ -29,8 +30,24 @@ impl Float {
         return Float::new(self.x + other.x)
     }
 
+    pub fn _ZF11N7__add__Ei(& mut self, other: Integer) -> Float {
+        return Float::new(self.x + other.x as FloatType)
+    }
+
     pub fn _ZF11N8__bool__E(& mut self) -> Bool {
         return Bool::new(self.x != 0.0)
+    }
+
+    pub fn _ZF11N8__real__E(& mut self) -> Float {
+        return *self
+    }
+
+    pub fn _ZF11N8__imag__E(& mut self) -> Float {
+        return Float::new(0.0)
+    }
+
+    pub fn _ZF10N7__str__E(& mut self) -> String {
+        return String::new(self.x.to_string())
     }
 
 }

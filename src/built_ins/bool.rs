@@ -1,5 +1,6 @@
 use crate::built_ins::integer::Integer;
 use crate::built_ins::float::Float;
+use crate::built_ins::string::String;
 use dumpster::Collectable;
 
 pub type BoolType = bool;
@@ -36,5 +37,11 @@ impl Bool {
     pub fn _ZF11N8__bool__E(& mut self) -> Bool {
         return *self
     }
+
+    pub fn _ZF10N7__str__E(& mut self) -> String {
+        return String::new(if self.x {std::string::String::from("True")} else {std::string::String::from("False")})
+    }
+
+
 
 }
