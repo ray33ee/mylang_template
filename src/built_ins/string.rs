@@ -1,8 +1,16 @@
 
-
+use crate::built_ins::integer::Integer;
+use std::fmt::Write;
+use dumpster::Collectable;
 
 pub struct String {
-    s: crate::heap::CellRc<std::string::String>,
+    pub s: crate::heap::CellRc<std::string::String>,
+}
+
+unsafe impl Collectable for String {
+    fn accept<V: dumpster::Visitor>(&self, visitor: &mut V) -> Result<(), ()> {
+        Ok(())
+    }
 }
 
 impl String {
@@ -28,7 +36,10 @@ impl String {
         crate::heap::mut_ref_rc(&self.s).as_str()
     }
 
-    //todo Add push_int, push_float, etc for all built in types that do not create allocations
+    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, format: Integer) {
+        write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", crate::heap::mut_ref_rc(&self.s).as_str()).unwrap()
+    }
+
 }
 
 impl Clone for String {

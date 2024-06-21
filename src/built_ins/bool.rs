@@ -2,6 +2,7 @@ use crate::built_ins::integer::Integer;
 use crate::built_ins::float::Float;
 use crate::built_ins::string::String;
 use dumpster::Collectable;
+use std::fmt::Write;
 
 pub type BoolType = bool;
 
@@ -38,8 +39,8 @@ impl Bool {
         return *self
     }
 
-    pub fn _ZF10N7__str__E(& mut self) -> String {
-        return String::new(if self.x {std::string::String::from("True")} else {std::string::String::from("False")})
+    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, format: Integer) {
+        write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", self.x).unwrap()
     }
 
 

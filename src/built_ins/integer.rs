@@ -2,6 +2,7 @@ use crate::built_ins::float::Float;
 use crate::built_ins::bool::Bool;
 use crate::built_ins::string::String;
 use dumpster::Collectable;
+use std::fmt::Write;
 
 pub type IntType = i64;
 
@@ -42,8 +43,8 @@ impl Integer {
         return Integer::new(0)
     }
 
-    pub fn _ZF10N7__str__E(& mut self) -> String {
-        return String::new(self.x.to_string())
+    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, format: Integer) {
+        write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", self.x).unwrap()
     }
 
 }
