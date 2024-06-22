@@ -3,6 +3,7 @@ use crate::built_ins::integer::Integer;
 use std::fmt::Write;
 use dumpster::Collectable;
 
+#[derive(Clone)]
 pub struct String {
     pub s: crate::heap::CellRc<std::string::String>,
 }
@@ -40,12 +41,4 @@ impl String {
         write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", crate::heap::mut_ref_rc(&self.s).as_str()).unwrap()
     }
 
-}
-
-impl Clone for String {
-    fn clone(&self) -> Self {
-        return String {
-            s: self.s.clone(),
-        }
-    }
 }
