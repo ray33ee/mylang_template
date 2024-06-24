@@ -9,6 +9,7 @@ pub struct List<T: Collectable + Clone + 'static> {
 
 impl<T: Clone + Collectable> List<T> {
 
+    #[allow(dead_code)]
     pub fn new(v: Vec<T>) -> Self {
         Self {
             l: heap::new_gc(v),
@@ -19,7 +20,7 @@ impl<T: Clone + Collectable> List<T> {
         heap::mut_ref_gc(&self.l).push(item);
     }
 
-    pub fn _ZF16N11__getitem__E(& mut self, index: Integer) -> T {
+    pub fn _ZF16N11__getitem__Ei(& mut self, index: Integer) -> T {
         return heap::mut_ref_gc(&self.l)[index.x as usize].clone()
     }
 

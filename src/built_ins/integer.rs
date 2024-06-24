@@ -43,7 +43,7 @@ impl Integer {
         return Integer::new(0)
     }
 
-    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, format: Integer) {
+    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, _format: Integer) {
         write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", self.x).unwrap()
     }
 

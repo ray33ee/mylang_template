@@ -9,7 +9,7 @@ pub struct String {
 }
 
 unsafe impl Collectable for String {
-    fn accept<V: dumpster::Visitor>(&self, visitor: &mut V) -> Result<(), ()> {
+    fn accept<V: dumpster::Visitor>(&self, _: &mut V) -> Result<(), ()> {
         Ok(())
     }
 }
@@ -37,7 +37,7 @@ impl String {
         crate::heap::mut_ref_rc(&self.s).as_str()
     }
 
-    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, format: Integer) {
+    pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, _format: Integer) {
         write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", crate::heap::mut_ref_rc(&self.s).as_str()).unwrap()
     }
 

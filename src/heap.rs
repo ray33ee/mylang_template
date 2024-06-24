@@ -11,40 +11,49 @@ pub type CellGc<T> = Gc<UnsafeCell<T>>;
 pub type CellRc<T> = Rc<UnsafeCell<T>>;
 
 // Functions used to obtain a mutable reference from an unsafe cell for improved readability
+#[allow(dead_code)]
 pub fn mut_ref_gc<T: Collectable>(t: & CellGc<T>) -> & mut T {
     unsafe { UnsafeCell::<_>::get(t).as_mut().unwrap() }
 }
 
+#[allow(dead_code)]
 pub fn mut_ref_rc<T>(t: & CellRc<T>) -> & mut T {
     unsafe { UnsafeCell::<_>::get(t).as_mut().unwrap() }
 }
 
 // Functions to create new CellGc and CellRc objects for improved readability
+#[allow(dead_code)]
 pub fn new_gc<T: Collectable>(t: T) -> CellGc<T> {
     Gc::new(UnsafeCell::new(t))
 }
 
+#[allow(dead_code)]
 pub fn new_rc<T>(t: T) -> CellRc<T> {
     Rc::new(UnsafeCell::new(t))
 }
 
 //Get the IDs of gc and rc objects
+#[allow(dead_code)]
 pub fn gc_id<T: Collectable>(t: & CellGc<T>) -> usize {
     return Gc::<_>::as_ptr(t) as usize;
 }
 
+#[allow(dead_code)]
 pub fn rc_id<T: Collectable>(t: & CellRc<T>) -> usize {
     return Rc::<_>::as_ptr(t) as usize;
 }
 
+#[allow(dead_code)]
 pub fn filthy_cast_to_rc<T>(t: & T) -> CellRc<T> {
     filthy_cast_to_rgc::<T, CellRc<T>>(t, 2)
 }
 
+#[allow(dead_code)]
 pub fn filthy_cast_to_gc<T: Collectable>(t: & T) -> CellGc<T> {
     filthy_cast_to_rgc::<T, CellGc<T>>(t, 1)
 }
 
+#[allow(dead_code)]
 fn filthy_cast_to_rgc<T, R: Clone>(t: & T, number_of_counts: isize) -> R {
     unsafe {
         // Convert the reference to t into a pointer to t
