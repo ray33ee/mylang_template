@@ -43,6 +43,9 @@ impl Bool {
         write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", self.x).unwrap()
     }
 
+    pub fn get_bool(& self) -> bool {
+        return self.x
+    }
 
 
 }

@@ -16,7 +16,7 @@ impl<T: Clone + Collectable> List<T> {
         }
     }
 
-    pub fn _ZF10N6appendE(& mut self, item: T) {
+    pub fn append(& mut self, item: T) {
         heap::mut_ref_gc(&self.l).push(item);
     }
 

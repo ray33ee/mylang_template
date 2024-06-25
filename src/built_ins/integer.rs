@@ -1,4 +1,4 @@
-use crate::built_ins::float::Float;
+use crate::built_ins::float::{Float, FloatType};
 use crate::built_ins::bool::Bool;
 use crate::built_ins::string::String;
 use dumpster::Collectable;
@@ -45,6 +45,22 @@ impl Integer {
 
     pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, _format: Integer) {
         write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", self.x).unwrap()
+    }
+
+    pub fn _ZF10N6__eq__Ei(& self, other: Integer) -> Bool {
+        return Bool::new(self.x == other.x)
+    }
+
+    pub fn _ZF10N6__ge__Ei(& self, other: Integer) -> Bool {
+        return Bool::new(self.x >= other.x)
+    }
+
+    pub fn _ZF10N6__ge__Ef(& self, other: Float) -> Bool {
+        return Bool::new(self.x as FloatType >= other.x)
+    }
+
+    pub fn _ZF10N7__one__E(& self) -> Integer {
+        return Integer::new(1);
     }
 
 }
