@@ -1,5 +1,5 @@
 use dumpster::{Collectable, Visitor};
-use crate::built_ins::integer::Integer;
+use crate::built_ins::integer::{Integer, IntType};
 use crate::heap;
 
 #[derive(Clone)]
@@ -22,6 +22,10 @@ impl<T: Clone + Collectable> List<T> {
 
     pub fn _ZF16N11__getitem__Ei(& mut self, index: Integer) -> T {
         return heap::mut_ref_gc(&self.l)[index.x as usize].clone()
+    }
+
+    pub fn _ZF10N7__len__E(& self) -> Integer {
+        return Integer::new(heap::mut_ref_gc(&self.l).len() as IntType)
     }
 
 }

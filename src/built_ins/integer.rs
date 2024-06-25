@@ -51,9 +51,27 @@ impl Integer {
         return Bool::new(self.x == other.x)
     }
 
+    pub fn _ZF10N6__ne__Ei(& self, other: Integer) -> Bool {
+        return Bool::new(self.x != other.x)
+    }
+
     pub fn _ZF10N6__ge__Ei(& self, other: Integer) -> Bool {
         return Bool::new(self.x >= other.x)
     }
+
+    pub fn _ZF10N6__gt__Ei(& self, other: Integer) -> Bool {
+        return Bool::new(self.x > other.x)
+    }
+
+    pub fn _ZF10N6__le__Ei(& self, other: Integer) -> Bool {
+        return Bool::new(self.x <= other.x)
+    }
+
+    pub fn _ZF10N6__lt__Ei(& self, other: Integer) -> Bool {
+        return Bool::new(self.x < other.x)
+    }
+
+
 
     pub fn _ZF10N6__ge__Ef(& self, other: Float) -> Bool {
         return Bool::new(self.x as FloatType >= other.x)
@@ -61,6 +79,22 @@ impl Integer {
 
     pub fn _ZF10N7__one__E(& self) -> Integer {
         return Integer::new(1);
+    }
+
+    pub fn _ZF11N7__mul__Ei(&self, other: Integer) -> Integer {
+        return Integer::new(self.x * other.x)
+    }
+
+    pub fn _ZF11N7__sub__Ei(&self, other: Integer) -> Integer {
+        return Integer::new(self.x - other.x)
+    }
+
+    pub fn _ZF11N7__mod__Ei(&self, other: Integer) -> Integer {
+        return Integer::new(self.x % other.x)
+    }
+
+    pub fn _ZF17N12__floordiv__Ei(&self, other: Integer) -> Integer {
+        return Integer::new(self.x / other.x)
     }
 
 }

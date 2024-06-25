@@ -13,5 +13,9 @@ pub fn _ZF17N12print_stringEu(s: crate::built_ins::string::String) {
     println!("{}", crate::heap::mut_ref_rc(&s.s).as_str())
 }
 
+pub fn _ZF17N12panic_stringEu(s: crate::built_ins::string::String) {
+    panic!("{}", crate::heap::mut_ref_rc(&s.s).as_str())
+}
+
 /* User code here */
 
