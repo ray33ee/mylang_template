@@ -9,11 +9,11 @@ mod built_ins;
 
 /* Rust built in functions */
 
-pub fn _ZF17N12print_stringEu(s: crate::built_ins::string::String) {
+pub fn _ZF17N12print_stringEu(s: crate::built_ins::String::String) {
     println!("{}", crate::heap::mut_ref_rc(&s.s).as_str())
 }
 
-pub fn _ZF17N12panic_stringEu(s: crate::built_ins::string::String) {
+pub fn _ZF17N12panic_stringEu(s: crate::built_ins::String::String) {
     panic!("{}", crate::heap::mut_ref_rc(&s.s).as_str())
 }
 

@@ -1,5 +1,5 @@
 use dumpster::{Collectable, Visitor};
-use crate::built_ins::integer::{Integer, IntType};
+use crate::built_ins::Integer::{Integer, IntType};
 use crate::heap;
 
 #[derive(Clone)]
@@ -7,7 +7,7 @@ pub struct List<T: Collectable + Clone + 'static> {
     l: heap::CellGc<Vec<T>>,
 }
 
-impl<T: Clone + Collectable> List<T> {
+impl<T: Clone + Collectable> List<T> /*START PARSE HERE*/ {
 
     #[allow(dead_code)]
     pub fn new(v: Vec<T>) -> Self {

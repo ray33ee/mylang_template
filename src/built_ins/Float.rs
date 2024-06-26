@@ -1,6 +1,6 @@
-use crate::built_ins::integer::Integer;
-use crate::built_ins::bool::Bool;
-use crate::built_ins::string::String;
+use crate::built_ins::Integer::Integer;
+use crate::built_ins::Bool::Bool;
+use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
 
@@ -24,7 +24,7 @@ impl Float {
     }
 
     pub fn _ZF10N7__int__E(& mut self) -> Integer {
-        return Integer::new(self.x as crate::built_ins::integer::IntType)
+        return Integer::new(self.x as crate::built_ins::Integer::IntType)
     }
 
     pub fn _ZF11N7__add__Ef(& mut self, other: Float) -> Float {

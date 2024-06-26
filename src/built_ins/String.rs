@@ -1,5 +1,5 @@
 
-use crate::built_ins::integer::Integer;
+use crate::built_ins::Integer::Integer;
 use std::fmt::Write;
 use dumpster::Collectable;
 
@@ -21,7 +21,7 @@ impl String {
         }
     }
 
-    pub fn _ZF10N7__str__E(& mut self) -> Self {
+    pub fn _ZF10N7__str__E(& mut self) -> String {
         self.clone()
     }
 

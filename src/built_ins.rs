@@ -1,8 +1,8 @@
 
-pub mod integer;
-pub mod float;
-pub mod bool;
-pub mod string;
-pub mod list;
-pub mod option;
+pub mod Integer;
+pub mod Float;
+pub mod Bool;
+pub mod String;
+pub mod List;
+pub mod Option;
 

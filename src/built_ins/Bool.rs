@@ -1,6 +1,6 @@
-use crate::built_ins::integer::Integer;
-use crate::built_ins::float::Float;
-use crate::built_ins::string::String;
+use crate::built_ins::Integer::Integer;
+use crate::built_ins::Float::Float;
+use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
 
