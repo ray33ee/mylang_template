@@ -3,6 +3,7 @@ use crate::built_ins::Bool::Bool;
 use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
+use crate::built_ins::Bytes::Bytes;
 
 pub type FloatType = f64;
 

@@ -5,7 +5,7 @@ use dumpster::Collectable;
 
 #[derive(Clone)]
 pub struct Option<O: Collectable + Clone + 'static> {
-    pub s: crate::heap::CellGc<std::option::Option<T>>,
+    pub s: crate::heap::CellGc<std::option::Option<O>>,
 }
 
 unsafe impl<O: Collectable + Clone> Collectable for Option<O> {

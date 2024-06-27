@@ -3,6 +3,8 @@ use crate::built_ins::Bool::Bool;
 use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
+use crate::built_ins::Bytes::Bytes;
+use crate::heap::{CellGc, CellRc};
 
 pub type IntType = i64;
 
@@ -93,8 +95,20 @@ impl Integer {
         return Integer::new(self.x % other.x)
     }
 
+    pub fn _ZF11N7__xor__Ei(&self, other: Integer) -> Integer {
+        return Integer::new(self.x ^ other.x)
+    }
+
     pub fn _ZF17N12__floordiv__Ei(&self, other: Integer) -> Integer {
         return Integer::new(self.x / other.x)
+    }
+
+    pub fn _ZF19N14__push_bytes__Em(& mut self, b: Bytes) {
+        crate::heap::mut_ref_rc(&b.b).extend_from_slice(self.x.to_ne_bytes().as_slice())
+    }
+
+    pub fn _ZF27N8__hash__E_ZC11N7_HasherEi(& mut self, h: CellGc<crate::_ZC11N7_HasherEi>) {
+        crate::heap::mut_ref_gc(&h)._ZF9N5writeEi(self.clone());
     }
 
 }
