@@ -4,6 +4,7 @@ use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
 use crate::built_ins::Bytes::Bytes;
+use crate::heap::CellGc;
 
 pub type FloatType = f64;
 
@@ -54,6 +55,10 @@ impl Float {
 
     pub fn _ZF18N12__push_fmt__Eui(& mut self, s: String, _format: Integer) {
         write!(& mut crate::heap::mut_ref_rc(&s.s), "{}", self.x).unwrap()
+    }
+
+    pub fn _ZF22N8__hash__EC9N6HasherE(& mut self, h: CellGc<crate::classes::Hasher::Hasher>) {
+        crate::heap::mut_ref_gc(&h)._ZF9N5writeEf(self.clone());
     }
 
 }

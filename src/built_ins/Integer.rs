@@ -107,7 +107,7 @@ impl Integer {
         crate::heap::mut_ref_rc(&b.b).extend_from_slice(self.x.to_ne_bytes().as_slice())
     }
 
-    pub fn _ZF27N8__hash__E_ZC11N7_HasherEi(& mut self, h: CellGc<crate::_ZC11N7_HasherEi>) {
+    pub fn _ZF22N8__hash__EC9N6HasherE(& mut self, h: CellGc<crate::classes::Hasher::Hasher>) {
         crate::heap::mut_ref_gc(&h)._ZF9N5writeEi(self.clone());
     }
 
