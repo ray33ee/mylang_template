@@ -35,3 +35,13 @@ impl Hasher {
         std::hash::Hasher::write(&mut self.hasher, crate::heap::mut_ref_rc(&b.b).as_slice());
     }
 }
+
+impl std::hash::Hasher for Hasher {
+    fn finish(&self) -> u64 {
+        self.hasher.finish()
+    }
+
+    fn write(&mut self, bytes: &[u8]) {
+        self.hasher.write(bytes)
+    }
+}

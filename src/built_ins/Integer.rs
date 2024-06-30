@@ -3,6 +3,8 @@ use crate::built_ins::Bool::Bool;
 use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
+use std::hash::Hasher;
+use std::process::ExitCode;
 use crate::built_ins::Bytes::Bytes;
 use crate::heap::{CellGc, CellRc};
 
@@ -112,3 +114,15 @@ impl Integer {
     }
 
 }
+
+impl std::process::Termination for Integer {
+    fn report(self) -> ExitCode {
+        ExitCode::from(self.x as u8)
+    }
+}
+
+/*impl std::hash::Hash for Integer {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        self._ZF22N8__hash__EC9N6HasherE()
+    }
+}*/
