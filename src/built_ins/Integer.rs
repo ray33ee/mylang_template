@@ -6,6 +6,7 @@ use std::fmt::Write;
 use std::hash::Hasher;
 use std::process::ExitCode;
 use crate::built_ins::Bytes::Bytes;
+use crate::built_ins::ID::ID;
 use crate::heap::{CellGc, CellRc};
 
 pub type IntType = i64;
@@ -21,6 +22,10 @@ impl Integer {
         Self {
             x,
         }
+    }
+
+    pub fn _ZF9N6__id__E(& mut self) -> ID {
+        return ID::new(crate::heap::ref_id(self));
     }
 
     pub fn _ZF12N9__float__E(& mut self) -> Float {

@@ -3,6 +3,7 @@ use crate::built_ins::Float::Float;
 use crate::built_ins::String::String;
 use dumpster::Collectable;
 use std::fmt::Write;
+use crate::built_ins::ID::ID;
 
 pub type BoolType = bool;
 
@@ -17,6 +18,10 @@ impl Bool {
         Self {
             x,
         }
+    }
+
+    pub fn _ZF9N6__id__E(& mut self) -> ID {
+        return ID::new(crate::heap::ref_id(self));
     }
 
     pub fn _ZF12N9__float__E(& mut self) -> Float {

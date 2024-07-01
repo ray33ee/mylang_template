@@ -16,6 +16,10 @@ impl<T: Clone + Collectable> List<T> /*START PARSE HERE*/ {
         }
     }
 
+    pub fn _ZF9N6__id__E(& mut self) -> Integer {
+        return Integer::new(crate::heap::gc_id(&self.l) as IntType);
+    }
+
     pub fn append(& mut self, item: T) {
         heap::mut_ref_gc(&self.l).push(item);
     }

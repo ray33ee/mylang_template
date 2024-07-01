@@ -43,6 +43,10 @@ pub fn rc_id<T: Collectable>(t: & CellRc<T>) -> usize {
     return Rc::<_>::as_ptr(t) as usize;
 }
 
+pub fn ref_id<T>(t: &T) -> usize {
+    return t as * const T as usize
+}
+
 #[allow(dead_code)]
 pub fn filthy_cast_to_rc<T>(t: & T) -> CellRc<T> {
     filthy_cast_to_rgc::<T, CellRc<T>>(t, 2)
